@@ -8,6 +8,12 @@ Shooter::Shooter()
 {
 }
 
+Shooter::~Shooter()
+{
+	delete shooterMotor1;
+	delete shooterMotor2;
+}
+
 void Shooter::InitDefaultCommand()
 {
 }

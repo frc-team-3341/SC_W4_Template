@@ -11,6 +11,7 @@ private:
 	Talon* shooterMotor2;
 public:
 	Shooter();
+	virtual ~Shooter();
 	void InitDefaultCommand();
 
 	void shootBall();

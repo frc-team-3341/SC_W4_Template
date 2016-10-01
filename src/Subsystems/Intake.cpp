@@ -7,6 +7,11 @@ Intake::Intake()
 {
 }
 
+Intake::~Intake()
+{
+	delete intakeMotor;
+}
+
 void Intake::InitDefaultCommand()
 {
 }

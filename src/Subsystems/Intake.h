@@ -10,6 +10,7 @@ private:
 	Talon* intakeMotor;
 public:
 	Intake();
+	virtual ~Intake();
 	void InitDefaultCommand();
 
 	void intakeBall();
