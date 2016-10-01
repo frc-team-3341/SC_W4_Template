@@ -3,9 +3,12 @@
 
 #include <string>
 #include "Commands/Command.h"
-#include "Subsystems/DriveTrain.h"
-#include "OI.h"
 #include "WPILib.h"
+
+#include "Subsystems/DriveTrain.h"
+#include "Subsystems/Intake.h"
+#include "Subsystems/Shooter.h"
+#include "OI.h"
 
 /**
  * The base for all commands. All atomic commands should subclass CommandBase.
@@ -18,8 +21,12 @@ public:
 	CommandBase(const std::string &name);
 	CommandBase();
 	static void init();
+
 	// Create a single static instance of all of your subsystems
 	static DriveTrain* drive;
+	static Intake* intake;
+	static Shooter* shooter;
+
 	static OI* oi;
 };
 
