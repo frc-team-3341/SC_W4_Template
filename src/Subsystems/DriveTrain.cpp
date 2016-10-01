@@ -1,11 +1,8 @@
-/*
- * DriveTrain.cpp
- *
- *  Created on: Sep 23, 2016
- *      Author: Nir
- */
+#include "WPILib.h"
+#include "RobotMap.h"
+#include "DriveTrain.h"
 
-#include <Subsystems/DriveTrain.h>
+#include "Commands/DriveTrain/ArcadeDrive.h"
 
 #define max(x, y) (((x) > (y)) ? (x) : (y))
 
@@ -13,13 +10,12 @@ DriveTrain::DriveTrain() :
 	Subsystem("DriveTrain"), leftMotor(new Talon(MOTORLEFT)),
 	rightMotor(new Talon(MOTORRIGHT))
 {
-
-
 }
 
 DriveTrain::~DriveTrain()
 {
-	// TODO Auto-generated destructor stub
+	delete leftMotor;
+	delete rightMotor;
 }
 
 void DriveTrain::arcadeDrive(float moveValue, float rotateValue)
@@ -27,7 +23,7 @@ void DriveTrain::arcadeDrive(float moveValue, float rotateValue)
     float leftMotorOutput;
     float rightMotorOutput;
 
-    moveValue = DriveTrain::Limit(moveValue, 1.0) * mult;
+    moveValue = DriveTrain::Limit(moveValue, 1.0);
     rotateValue = -DriveTrain::Limit(rotateValue, 1.0);
 
     // Standard ArcadeDrive algorithm from Google
@@ -74,4 +70,9 @@ float DriveTrain::Limit(float num, float max)
         return -max;
 
     return num;
+}
+
+void DriveTrain::InitDefaultCommand()
+{
+	SetDefaultCommand(new ArcadeDrive());
 }

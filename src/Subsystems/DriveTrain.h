@@ -1,12 +1,8 @@
-/*
- * DriveTrain.h
- *
- *  Created on: Sep 23, 2016
- *      Author: Nir
- */
-
 #ifndef SRC_SUBSYSTEMS_DRIVETRAIN_H_
 #define SRC_SUBSYSTEMS_DRIVETRAIN_H_
+
+#include <Commands/Subsystem.h>
+#include "WPILib.h"
 
 class DriveTrain: public Subsystem {
 public:
@@ -15,6 +11,7 @@ public:
 	void arcadeDrive(float move, float rotate);
 	static float Limit(float num, float max);
 
+	void InitDefaultCommand();
 
 private:
 	Talon* leftMotor;

@@ -1,6 +1,11 @@
 #include "OI.h"
 
 OI::OI()
+	: driveStick(0)
 {
-	// Process operator interface input here.
+}
+
+Joystick* OI::getDriveStick()
+{
+	return driveStick;
 }
